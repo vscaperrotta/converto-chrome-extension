@@ -1,0 +1,32 @@
+:root {
+  font-family: "Inter", serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --wrapper-background: linear-gradient(#fff, #eee);
+
+  --main-title-color: #333;
+  --main-subtitle-color: #888;
+
+  // COMPONENTS
+  // Border
+  --border-color: #ed2672;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wrapper-background: linear-gradient(#333, #111);
+
+    --main-title-color: #eee;
+    --main-subtitle-color: #888;
+
+    // COMPONENTS
+    // Border
+    --border-color: #ed2672;
+  }
+}

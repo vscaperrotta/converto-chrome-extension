@@ -1,0 +1,28 @@
+@use './theme';
+@use './components/index';
+
+#root {
+  font-family: 'Inter', sans-serif;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .wrapper {
+    background: var(--wrapper-background);
+    padding: 1rem;
+  }
+
+  .main__title {
+    font-weight: 700;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+
+  .main__subtitle {
+    font-size: .8rem;
+    font-weight: 400;
+    margin: 0 0 2rem;
+    text-align: center;
+  }
+}
