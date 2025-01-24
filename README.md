@@ -26,7 +26,7 @@
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/vscaperrotta/units-converter-chrome-extension
+   git clone https://github.com/vscaperrotta/converto-chrome-extension
    ```
 2. Install dependencies with Yarn:
    ```bash

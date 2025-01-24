@@ -1,6 +1,6 @@
 {
   "name": "units-converter-chrome-extension",
-  "displayName": "コンヴェルト",
+  "displayName": "コンヴェルト - Converto",
   "description": "コンヴェルト [Converto] is a web units converter chrome extension for web developers",
   "version": "0.1.0",
   "private": true,
