@@ -16,10 +16,10 @@ function BaseUnits({
         1em = <span>{baseEm}px</span>
       </p>
       <p className='base-units__label'>
-        containerWidth = <span>{containerWidth}px</span> (for PX ↔ %)
+        Container Width = <span>{containerWidth}px</span> (for PX ↔ %)
       </p>
       <p className='base-units__label'>
-        baseUnit = <span>{baseUnit}</span> (for Base ↔ PX)
+        Base Unit = <span>{baseUnit}</span> (for Base ↔ PX)
       </p>
     </div>
   );
