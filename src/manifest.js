@@ -18,10 +18,6 @@ export async function getManifest() {
       48: "icon.png",
       128: "icon.png"
     },
-    permissions: [],
-    host_permissions: [
-      "<all_urls>"
-    ],
   }
 
   return manifest
