@@ -130,5 +130,5 @@ dist
 .pnp.*
 
 # compression
-.zip
-.rar
+*.zip
+*.rar
