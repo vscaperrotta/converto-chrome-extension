@@ -10,6 +10,7 @@ function Select({
   return (
     <div className='select__container'>
       <select
+        className='select__field'
         name={id}
         id={id}
         value={value}

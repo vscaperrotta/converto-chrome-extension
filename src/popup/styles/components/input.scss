@@ -1,18 +1,27 @@
-.select__container {
+.input__container {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 0 auto;
-  max-width: 10rem;
+  max-width: 7rem;
   width: 100%;
 
-  .select__field {
+  .input__field {
+    -webkit-appearance: none;
     background-color: transparent;
     border: .1rem solid var(--field-border);
     border-radius: .25rem;
     color: var(--field-color);
     padding: .5rem;
     width: 100%;
+
+    &:focus-visible {
+      border-color: var(--field-border);
+    }
+
+    &--convertion {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
   }
 }

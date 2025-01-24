@@ -1,8 +1,6 @@
 const messages = {
-  select: {
-    label:
-      'Select conversion:'
-  }
+  title: 'コンヴェルト',
+  subtitle: 'Multi-Unit Converter',
 }
 
 export default messages;

@@ -6,19 +6,19 @@ function Input({
   value = '',
   onChange = () => { },
   placeholder = '',
-  type = 'text',
+  convertion = false
 }) {
   return (
-    <div>
-      <label htmlFor="">{label}</label>
+    <div className='input__container'>
       <input
         name={id}
         id={id}
         value={value}
         onChange={onChange}
-        className={'input'}
+        className={`input__field ${convertion ? 'input__field--convertion' : ''}`}
         placeholder={placeholder}
-        type={type}
+        type='number'
+        inputMode="numeric"
       />
     </div>
   );

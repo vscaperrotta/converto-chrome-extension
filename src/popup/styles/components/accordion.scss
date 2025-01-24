@@ -1,0 +1,38 @@
+.accordion__container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  width: 100%;
+
+  .accordion__header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .accordion__copies {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    width: 100%;
+  }
+
+  .accordion__label {
+    width: 100%;
+  }
+
+  .accordion__caption {
+    width: 100%;
+  }
+
+  .accordion__button {
+    height: 36px;
+    width: 36px;
+  }
+
+  .accordion__content {
+    padding-top: 1rem;
+  }
+}

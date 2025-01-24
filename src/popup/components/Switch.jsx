@@ -5,7 +5,9 @@ function Switch({
 }) {
   return (
     <div className='switch__container'>
-      <button onClick={onClick}>switch</button>
+      <button className='switch__button' onClick={onClick}>
+        switch
+      </button>
     </div>
   );
 }

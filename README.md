@@ -1,5 +1,6 @@
 
-<h3 align='center'>Web Calc Chrome Extension</h3>
+<h3 align='center'>コンヴェルト</h3>
+<p align='center'>Web Calc Chrome Extension</p>
 
 <br />
 <br />

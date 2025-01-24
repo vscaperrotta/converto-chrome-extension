@@ -21,7 +21,7 @@ import Select from './components/Select';
 import Input from './components/Input';
 import Switch from './components/Switch';
 import Accordion from './components/Accordion';
-// import messages from './modules/messages';
+import messages from './modules/messages';
 
 /**
  * Converts PX to REM, given a custom baseRem value.
@@ -182,64 +182,64 @@ function getLabelsAndPlaceholders(selectedConversion) {
       return {
         label1: 'PX',
         label2: 'REM',
-        placeholder1: 'Enter PX value',
-        placeholder2: 'Converted to REM'
+        placeholder1: 'PX',
+        placeholder2: 'REM'
       };
     case 'REM_PX':
       return {
         label1: 'REM',
         label2: 'PX',
-        placeholder1: 'Enter REM value',
-        placeholder2: 'Converted to PX'
+        placeholder1: 'REM',
+        placeholder2: 'PX'
       };
     case 'PX_EM':
       return {
         label1: 'PX',
         label2: 'EM',
-        placeholder1: 'Enter PX value',
-        placeholder2: 'Converted to EM'
+        placeholder1: 'PX',
+        placeholder2: 'EM'
       };
     case 'EM_PX':
       return {
         label1: 'EM',
         label2: 'PX',
-        placeholder1: 'Enter EM value',
-        placeholder2: 'Converted to PX'
+        placeholder1: 'EM',
+        placeholder2: 'PX'
       };
     case 'PX_PCT':
       return {
         label1: 'PX',
         label2: '%',
-        placeholder1: 'Enter PX value',
-        placeholder2: 'Converted to %'
+        placeholder1: 'PX',
+        placeholder2: '%'
       };
     case 'PCT_PX':
       return {
         label1: '%',
         label2: 'PX',
-        placeholder1: 'Enter % value',
-        placeholder2: 'Converted to PX'
+        placeholder1: '%',
+        placeholder2: 'PX'
       };
     case 'BASE_PX':
       return {
         label1: 'Base Unit',
         label2: 'PX',
-        placeholder1: 'Enter base unit value',
-        placeholder2: 'Converted to PX'
+        placeholder1: 'base unit',
+        placeholder2: 'PX'
       };
     case 'PX_BASE':
       return {
         label1: 'PX',
         label2: 'Base Unit',
-        placeholder1: 'Enter PX value',
-        placeholder2: 'Converted to base unit'
+        placeholder1: 'PX',
+        placeholder2: 'base unit'
       };
     default:
       return {
         label1: 'Value 1',
         label2: 'Value 2',
-        placeholder1: 'Enter value',
-        placeholder2: 'Converted value'
+        placeholder1: 'value',
+        placeholder2: 'value'
       };
   }
 }
@@ -366,11 +366,15 @@ export default function App() {
 
   return (
     <div className='wrapper'>
-      <h2 className='main__title'>Multi-Unit Converter</h2>
-      <p className='main__subtitle'>Customizable Base Values</p>
+      <h2 className='app__title'>
+        {messages.title}
+      </h2>
+      <p className='app__subtitle'>
+        {messages.subtitle}
+      </p>
 
       {/* -- Conversion type selection -- */}
-      <div style={{ marginBottom: '20px' }}>
+      <div className='app__select'>
         <Select
           id='conversionType'
           value={selectedConversion}
@@ -380,93 +384,79 @@ export default function App() {
       </div>
 
       {/* -- Conversion fields -- */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <div>
-          <Input
-            id='input1'
-            type="number"
-            label={label1}
-            value={value1}
-            onChange={handleValue1Change}
-            placeholder={placeholder1}
-          />
-        </div>
-
-        <div className="switch__container">
-          <Switch onClick={handleSwitch} />
-        </div>
-
-        <div>
-          <Input
-            id='input2'
-            type="number"
-            label={label2}
-            value={value2}
-            onChange={handleValue2Change}
-            placeholder={placeholder2}
-          />
-        </div>
+      <div className='app__fileds'>
+        <Input
+          id='input1'
+          label={label1}
+          value={value1}
+          onChange={handleValue1Change}
+          placeholder={placeholder1}
+        />
+        <Switch onClick={handleSwitch} />
+        <Input
+          convertion
+          id='input2'
+          label={label2}
+          value={value2}
+          onChange={handleValue2Change}
+          placeholder={placeholder2}
+        />
       </div>
 
       {/* -- Display current base values in use -- */}
-      <div style={{ marginTop: '20px', fontStyle: 'italic' }}>
-        <p>Current base values in use:</p>
-        <ul>
-          <li>1rem = {baseRem}px</li>
-          <li>1em = {baseEm}px</li>
-          <li>containerWidth = {containerWidth}px (for PX ↔ %)</li>
-          <li>baseUnit = {baseUnit} (for Base ↔ PX)</li>
-        </ul>
+      <div className='app__base-values'>
+        <h3>Current base values in use:</h3>
+        <p>1rem = {baseRem}px</p>
+        <p>1em = {baseEm}px</p>
+        <p>containerWidth = {containerWidth}px (for PX ↔ %)</p>
+        <p>baseUnit = {baseUnit} (for Base ↔ PX)</p>
       </div>
 
       {/* -- Custom base values section -- */}
-      <Accordion>
+      <Accordion
+        label='Custom base values'
+        caption='You can change the base values used in the conversions below.'
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
+          <label>
+            <strong>1rem in px: </strong>
+            <input
+              type="number"
+              value={baseRem}
+              onChange={(e) => setBaseRem(parseFloat(e.target.value) || 0)}
+              style={{ width: '100px', marginLeft: '8px' }}
+            />
+          </label>
 
-        <div style={{ marginTop: '30px', border: '1px solid #ccc', padding: '16px' }}>
-          <h2>Custom base values</h2>
-          <p>You can change the base values used in the conversions below.</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
+          <label>
+            <strong>1em in px: </strong>
+            <input
+              type="number"
+              value={baseEm}
+              onChange={(e) => setBaseEm(parseFloat(e.target.value) || 0)}
+              style={{ width: '100px', marginLeft: '8px' }}
+            />
+          </label>
 
-            <label>
-              <strong>1rem in px: </strong>
-              <input
-                type="number"
-                value={baseRem}
-                onChange={(e) => setBaseRem(parseFloat(e.target.value) || 0)}
-                style={{ width: '100px', marginLeft: '8px' }}
-              />
-            </label>
+          <label>
+            <strong>Container width in px: </strong>
+            <input
+              type="number"
+              value={containerWidth}
+              onChange={(e) => setContainerWidth(parseFloat(e.target.value) || 0)}
+              style={{ width: '100px', marginLeft: '8px' }}
+            />
+          </label>
 
-            <label>
-              <strong>1em in px: </strong>
-              <input
-                type="number"
-                value={baseEm}
-                onChange={(e) => setBaseEm(parseFloat(e.target.value) || 0)}
-                style={{ width: '100px', marginLeft: '8px' }}
-              />
-            </label>
-
-            <label>
-              <strong>Container width in px: </strong>
-              <input
-                type="number"
-                value={containerWidth}
-                onChange={(e) => setContainerWidth(parseFloat(e.target.value) || 0)}
-                style={{ width: '100px', marginLeft: '8px' }}
-              />
-            </label>
-
-            <label>
-              <strong>Base unit: </strong>
-              <input
-                type="number"
-                value={baseUnit}
-                onChange={(e) => setBaseUnit(parseFloat(e.target.value) || 0)}
-                style={{ width: '100px', marginLeft: '8px' }}
-              />
-            </label>
-          </div>
+          <label>
+            <strong>Base unit: </strong>
+            <input
+              type="number"
+              value={baseUnit}
+              onChange={(e) => setBaseUnit(parseFloat(e.target.value) || 0)}
+              style={{ width: '100px', marginLeft: '8px' }}
+            />
+          </label>
         </div>
       </Accordion>
     </div>

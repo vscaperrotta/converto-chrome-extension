@@ -1,7 +1,7 @@
 {
   "name": "units-converter-chrome-extension",
-  "displayName": "Web Converter",
-  "description": "Web units converter chrome extension for web developers",
+  "displayName": "コンヴェルト",
+  "description": "コンヴェルト is a web units converter chrome extension for web developers",
   "version": "0.0.1",
   "private": true,
   "author": "Vittorio Scaperrotta",

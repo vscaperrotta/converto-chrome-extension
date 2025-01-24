@@ -1,0 +1,16 @@
+.switch__container {
+  padding: .5rem;
+
+  .switch__button {
+    background: transparent;
+    border: none;
+    height: 2rem;
+    width: 2rem;
+
+    color: lime;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
