@@ -6,11 +6,15 @@ import paths from './config/paths';
 const APP_DIR = paths.appSrc;
 
 export default defineConfig({
+  server: {
+    open: true
+  },
   plugins: [
     react(),
   ],
   resolve: {
     alias: {
+      '@assets': `${APP_DIR}/assets`,
       '@popup': `${APP_DIR}/popup`,
       '@utils': `${APP_DIR}/utils`,
     },

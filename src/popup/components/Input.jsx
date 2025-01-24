@@ -10,6 +10,9 @@ function Input({
 }) {
   return (
     <div className='input__container'>
+      {label ? (
+        <label className='input__label'>{label}</label>
+      ) : null}
       <input
         name={id}
         id={id}

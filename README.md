@@ -1,6 +1,6 @@
 
-<h3 align='center'>コンヴェルト</h3>
-<p align='center'>Web Calc Chrome Extension</p>
+<h3 align='center'>コンヴェルト - Converto</h3>
+<p align='center'>Chrome Extension</p>
 
 <br />
 <br />
@@ -11,7 +11,7 @@
 <br />
 <br />
 
-**Web Calc** is a Google Chrome extension for serv to devs a few functionalities to fast calc rem/px/em/point units.
+**Converto** is a Google Chrome extension for serv to devs a few functionalities to fast calc rem/px/em/point units.
 
 ![Web Calc Screenshot](assets/screenshot.png)
 

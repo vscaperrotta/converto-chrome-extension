@@ -13,12 +13,14 @@
 
   .app__subtitle {
     color: var(--main-subtitle-color);
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
     text-align: center;
   }
 
   .app__select {
-    margin: 0 auto 1rem;
+    align-items: center;
+    display: flex;
+    margin: 0 0 2rem;
     width: 100%;
   }
 
@@ -28,7 +30,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 1rem;
-    margin: 0 auto 1rem;
+    margin: 0 auto 2rem;
     width: 100%;
   }
 
@@ -37,7 +39,7 @@
     display: flex;
     flex-direction: column;
     gap: .4rem;
-    margin: 0 auto 1rem;
+    margin: 0 auto 2rem;
     width: 100%;
   }
 }

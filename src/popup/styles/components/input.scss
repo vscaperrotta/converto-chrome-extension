@@ -1,27 +1,37 @@
 .input__container {
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  max-width: 7rem;
+  max-width: 8rem;
   width: 100%;
 
   .input__field {
     -webkit-appearance: none;
     background-color: transparent;
-    border: .1rem solid var(--field-border);
+    border: .1rem solid var(--input-field-border);
     border-radius: .25rem;
     color: var(--field-color);
+    font-size: 1rem;
+    font-weight: 700;
     padding: .5rem;
+    text-align: center;
     width: 100%;
 
-    &:focus-visible {
-      border-color: var(--field-border);
+    &::placeholder {
+      color: var(--input-placeholder-color);
+      font-weight: 700;
+      opacity: .5;
     }
 
     &--convertion {
       color: var(--primary-color);
-      font-weight: 700;
     }
+  }
+
+  .input__label {
+    color: var(--input-label-color);
+    font-size: .6rem;
+    margin: 0 auto .5rem;
   }
 }

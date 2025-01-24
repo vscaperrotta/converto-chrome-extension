@@ -2,37 +2,61 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  gap: .4rem;
+  max-width: 20rem;
   width: 100%;
 
   .accordion__header {
     align-items: center;
     display: flex;
     justify-content: center;
+    gap: 1rem;
   }
 
   .accordion__copies {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    gap: .4rem;
     width: 100%;
   }
 
   .accordion__label {
+    margin: 0 0 .5rem;
     width: 100%;
   }
 
   .accordion__caption {
+    color: var(--accordion-caption-color);
+    font-size: .8rem;
     width: 100%;
   }
 
   .accordion__button {
-    height: 36px;
-    width: 36px;
+    background-color: transparent;
+    border: 0;
+    height: 1.2rem;
+    outline: 0;
+    transform: rotate(180deg);
+    width: 1.2rem;
+
+    img {
+      width: inherit;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.open {
+      transform: rotate(0);
+    }
   }
 
   .accordion__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     padding-top: 1rem;
+    place-items: center;
+    width: 100%;
   }
 }

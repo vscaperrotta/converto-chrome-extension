@@ -17,9 +17,23 @@
   --main-subtitle-color: #888;
 
   // COMPONENTS
-  // Fields
-  --field-border: #bdbdbd;
-  --field-color: #333;
+  // Input
+  --input-field-border: #bdbdbd;
+  --input-label-color: #888;
+  --input-placeholder-color: #bbb;
+
+  // Select
+  --select-field-border: #bdbdbd;
+  --select-toggle-color: #333;
+  --select-option-active-background: #333;
+  --select-option-active-color: #31FCA8;
+
+  // Base Units
+  --base-units-label-color: #555555;
+  --base-units-span-color: #333;
+
+  // Accordion
+  --accordion-caption-color: #888;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,7 +49,21 @@
 
     // COMPONENTS
     // Fields
-    --field-border: #484848;
-    --field-color: #fff;
+    --input-field-border: #484848;
+    --input-label-color: #bbb;
+    --input-placeholder-color: #fff;
+
+    // Select
+    --select-field-border: #bdbdbd;
+    --select-toggle-color: #fff;
+    --select-option-active-background: #333;
+    --select-option-active-color: #31FCA8;
+
+    // Base Units
+    --base-units-label-color: #cccccc;
+    --base-units-span-color: #fff;
+
+    // Accordion
+    --accordion-caption-color: #888;
   }
 }

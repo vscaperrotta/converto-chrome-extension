@@ -1,27 +1,60 @@
-import React from 'react';
+import { useEffect, useState } from "react";
+import ArrowIcon from '@assets/arrow.png';
 
 function Select({
   id = '',
   label = '',
-  value = '',
+  options = [],
   onChange = () => { },
-  options = []
+  value = ''
 }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    const found = options.find((opt) => opt.value === value);
+    setSelected(found || null);
+  }, [value, options]);
+
+  const handleSelect = (option) => {
+    setIsOpen(false);
+    onChange(option);
+  };
+
+  useEffect(() => {
+    console.log(selected)
+  }, [selected]);
+
   return (
-    <div className='select__container'>
-      <select
-        className='select__field'
-        name={id}
-        id={id}
-        value={value}
-        onChange={onChange}
+    <div id={id} className="select__container">
+      {label && <label className="select__label">{label}</label>}
+
+      <button
+        type="button"
+        className="select__toggle"
+        onClick={() => setIsOpen(!isOpen)}
       >
-        {options.map(option => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+        {selected ? selected.label : "—"}
+        <img
+          src={ArrowIcon}
+          className={`select__arrow ${isOpen ? 'open' : ''}`}
+          alt=""
+        />
+      </button>
+
+      {isOpen && (
+        <ul className="select__menu">
+          {options.map((option) => (
+            <li
+              key={option.value}
+              className={`select__option ${option.value === selected.value ? 'selected' : ''}`}
+              onClick={() => handleSelect(option)}
+            >
+              {option.label}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

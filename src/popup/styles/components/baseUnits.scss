@@ -1,0 +1,24 @@
+.base-units__container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 20rem;
+  width: 100%;
+
+  .base-units__title {
+    margin: 0 0 .5rem;
+  }
+
+  .base-units__label {
+    color: var(--base-units-label-color);
+
+    span {
+      color: var(--base-units-span-color);
+      font-weight: 700;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: .5rem;
+    }
+  }
+}
