@@ -13,7 +13,7 @@
 
 **Converto** is a Google Chrome extension for serv to devs a few functionalities to fast calc rem/px/em/point units.
 
-![Web Calc Screenshot](assets/screenshot.png)
+![Converto Screenshot](assets/screenshot.jpg)
 
 ### Key Features
 
