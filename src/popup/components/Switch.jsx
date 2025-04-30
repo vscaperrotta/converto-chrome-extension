@@ -1,5 +1,5 @@
 import React from 'react';
-import SwitchIcon from '@assets/switch.png'
+import { Repeat } from 'react-feather';
 
 function Switch({
   onClick = () => { }
@@ -7,7 +7,7 @@ function Switch({
   return (
     <div className='switch__container'>
       <button className='switch__button' onClick={onClick}>
-        <img src={SwitchIcon} alt="switch icon" />
+        <Repeat size={20} />
       </button>
     </div>
   );
