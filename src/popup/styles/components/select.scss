@@ -23,18 +23,21 @@
     position: relative;
     text-align: left;
     width: 100%;
-  }
 
-  .select__arrow {
-    pointer-events: none;
-    position: absolute;
-    right: .8rem;
-    top: 50%;
-    transform: translateY(-50%) rotate(0);
-    width: 1.2rem;
+    svg {
+      pointer-events: none;
+      position: absolute;
+      right: .4rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(0);
+      stroke: var(--primary-color);
+    }
 
     &.open {
-      transform: translateY(-50%) rotate(180deg);
+
+      svg {
+        transform: translateY(-50%) rotate(180deg);
+      }
     }
   }
 
@@ -65,7 +68,7 @@
     &.selected {
       background-color: var(--select-option-active-background);
       color: var(--select-option-active-color);
-      font-weight: 700;
+      font-weight: 600;
 
       &:hover {
         background-color: #111;

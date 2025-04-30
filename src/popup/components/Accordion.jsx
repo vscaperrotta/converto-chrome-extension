@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ArrowIcon from '@assets/arrow.png';
+import { ChevronDown } from 'react-feather';
 
 function Accordion({
   label = '',
@@ -27,7 +27,7 @@ function Accordion({
           className={`accordion__button ${expanded ? 'close' : 'open'}`}
           onClick={() => handleClick()}
         >
-          <img src={ArrowIcon} alt='arrow' />
+          <ChevronDown size={32} />
         </button>
       </div>
       {expanded && (

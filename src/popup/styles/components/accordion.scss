@@ -38,8 +38,8 @@
     transform: rotate(180deg);
     width: 1.2rem;
 
-    img {
-      width: inherit;
+    svg {
+      stroke: var(--primary-color);
     }
 
     &:hover {

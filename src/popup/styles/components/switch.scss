@@ -16,8 +16,12 @@
       opacity: 1;
     }
 
-    img {
-      height: 100%;
+    // img {
+    //   height: 100%;
+    // }
+
+    svg {
+      stroke: var(--primary-color);
     }
   }
 }

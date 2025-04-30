@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ArrowIcon from '@assets/arrow.png';
+import { ChevronDown } from "react-feather";
 
 function Select({
   id = '',
@@ -21,25 +21,17 @@ function Select({
     onChange(option);
   };
 
-  useEffect(() => {
-    console.log(selected)
-  }, [selected]);
-
   return (
     <div id={id} className="select__container">
       {label && <label className="select__label">{label}</label>}
 
       <button
         type="button"
-        className="select__toggle"
+        className={`select__toggle ${isOpen ? 'open' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {selected ? selected.label : "—"}
-        <img
-          src={ArrowIcon}
-          className={`select__arrow ${isOpen ? 'open' : ''}`}
-          alt=""
-        />
+        <ChevronDown size={32} />
       </button>
 
       {isOpen && (
