@@ -17,6 +17,7 @@
  */
 
 import { useState } from 'react';
+import { Repeat, Copy } from 'react-feather';
 import {
   directConversion,
   reverseConversion,
@@ -24,7 +25,7 @@ import {
 } from '@utils/converters';
 import Select from './components/Select';
 import Input from './components/Input';
-import Switch from './components/Switch';
+import Button from './components/Button';
 import BaseUnits from './components/BaseUnits';
 import Accordion from './components/Accordion';
 import messages from './modules/messages';
@@ -49,6 +50,9 @@ export default function App() {
   const [baseEm, setBaseEm] = useState(16);                   // default 1em = 16px
   const [containerWidth, setContainerWidth] = useState(1024); // default container = 1024px
   const [baseUnit, setBaseUnit] = useState(8);                // default base unit = 8px
+
+  // Copied Value
+  const [copied, setCopied] = useState(false);
 
   // Retrieve dynamic labels/placeholders based on the conversion type
   const { placeholder1, placeholder2 } = getLabelsAndPlaceholders(selectedConversion);
@@ -82,7 +86,7 @@ export default function App() {
    * @param {React.ChangeEvent<HTMLInputElement>} e
    */
   function handleValue1Change(e) {
-    const newVal = e.target.value;
+    const newVal = e.target.value.replace(',', '.');
     setValue1(newVal);
 
     const parsedVal = parseFloat(newVal);
@@ -105,10 +109,11 @@ export default function App() {
    * @param {React.ChangeEvent<HTMLInputElement>} e
    */
   function handleValue2Change(e) {
-    const newVal = e.target.value;
+    const newVal = e.target.value.replace(',', '.');
     setValue2(newVal);
 
     const parsedVal = parseFloat(newVal);
+    console.log(parsedVal)
     if (!isNaN(parsedVal)) {
       const converted = reverseConversion(selectedConversion, parsedVal, {
         baseRem,
@@ -148,8 +153,24 @@ export default function App() {
     setValue2(tmpValue1);
   }
 
+  /**
+   * Handle the "copy" button click. Copies the value of the second input field to the clipboard.
+   */
+  function handleCopy(field) {
+    setCopied(true);
+
+    navigator.clipboard.writeText(field === 'input1' ? value1 : value2);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 3000);
+  }
+
   return (
     <div className='wrapper'>
+      <div className={`app_toast ${copied ? 'app_toast--active' : ''}`}>
+        {messages.copied}
+      </div>
       <h2 className='app__title'>
         {messages.title}
       </h2>
@@ -168,23 +189,36 @@ export default function App() {
       </div>
 
       {/* -- Conversion fields -- */}
-      <div className='app__fileds'>
-        <Input
-          id='input1'
-          value={value1}
-          onChange={handleValue1Change}
-          placeholder={placeholder1}
-        />
-        <Switch
+      <div className='app__fields'>
+        <div className="app__input-wrapper">
+          <Button
+            onClick={() => handleCopy('input1')}
+            icon={<Copy size={20} />}
+          />
+          <Input
+            id='input1'
+            value={value1}
+            onChange={handleValue1Change}
+            placeholder={placeholder1}
+          />
+        </div>
+        <Button
           onClick={handleSwitch}
+          icon={<Repeat size={20} />}
         />
-        <Input
-          convertion
-          id='input2'
-          value={value2}
-          onChange={handleValue2Change}
-          placeholder={placeholder2}
-        />
+        <div className="app__input-wrapper">
+          <Input
+            convertion
+            id='input2'
+            value={value2}
+            onChange={handleValue2Change}
+            placeholder={placeholder2}
+          />
+          <Button
+            onClick={() => handleCopy('input2')}
+            icon={<Copy size={20} />}
+          />
+        </div>
       </div>
 
       <hr />

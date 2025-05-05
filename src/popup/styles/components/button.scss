@@ -1,24 +1,26 @@
-.switch__container {
+.button__container {
   align-items: center;
   justify-content: center;
   display: flex;
   padding: .2rem;
 
-  .switch__button {
+  .button__button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
     background: transparent;
     border: none;
-    height: 1.2rem;
+    border-radius: .25rem;
+    height: auto;
     opacity: .75;
     transition: all .2s ease-in-out;
+    padding: .25rem;
 
     &:hover {
       cursor: pointer;
       opacity: 1;
+      background: #eee;
     }
-
-    // img {
-    //   height: 100%;
-    // }
 
     svg {
       stroke: var(--primary-color);
