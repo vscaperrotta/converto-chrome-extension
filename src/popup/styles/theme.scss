@@ -24,6 +24,10 @@
   --input-label-color: #888;
   --input-placeholder-color: #bbb;
 
+  // Button
+  --button-background: transparent;
+  --button-background-hover: #eee;
+
   // Select
   --select-field-border: #bdbdbd;
   --select-toggle-color: #333;
@@ -56,6 +60,10 @@
     --input-field-border: #484848;
     --input-label-color: #bbb;
     --input-placeholder-color: #fff;
+
+    // Button
+    --button-background: transparent;
+    --button-background-hover: #444;
 
     // Select
     --select-field-border: #bdbdbd;
