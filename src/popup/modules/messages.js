@@ -1,5 +1,5 @@
 const messages = {
-  title: 'コンヴェルト',
+  title: 'Converto - コンヴェルト',
   subtitle: 'Multi-Unit Converter',
   customizationTitle: 'Custom base values',
   customizationCaption: 'You can change the base values used in the conversions below.',

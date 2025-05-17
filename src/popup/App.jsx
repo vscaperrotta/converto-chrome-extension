@@ -23,6 +23,10 @@ import {
   reverseConversion,
   getLabelsAndPlaceholders
 } from '@utils/converters';
+import {
+  selectOptions,
+  invertedMap
+} from '@utils/units';
 import Select from './components/Select';
 import Input from './components/Input';
 import Button from './components/Button';
@@ -56,18 +60,6 @@ export default function App() {
 
   // Retrieve dynamic labels/placeholders based on the conversion type
   const { placeholder1, placeholder2 } = getLabelsAndPlaceholders(selectedConversion);
-
-  // Select options
-  const selectOptions = [
-    { value: 'PX_REM', label: 'PX to REM' },
-    { value: 'REM_PX', label: 'REM to PX' },
-    { value: 'PX_EM', label: 'PX to EM' },
-    { value: 'EM_PX', label: 'EM to PX' },
-    { value: 'PX_PCT', label: 'PX to %' },
-    { value: 'PCT_PX', label: '% to PX' },
-    { value: 'BASE_PX', label: 'Base unit to PX' },
-    { value: 'PX_BASE', label: 'PX to Base unit' }
-  ]
 
   /**
    * Handle changes in the <select> element for conversion type.
@@ -113,7 +105,7 @@ export default function App() {
     setValue2(newVal);
 
     const parsedVal = parseFloat(newVal);
-    console.log(parsedVal)
+
     if (!isNaN(parsedVal)) {
       const converted = reverseConversion(selectedConversion, parsedVal, {
         baseRem,
@@ -134,17 +126,6 @@ export default function App() {
    * Also swaps the input values for consistency.
    */
   function handleSwitch() {
-    const invertedMap = {
-      'PX_REM': 'REM_PX',
-      'REM_PX': 'PX_REM',
-      'PX_EM': 'EM_PX',
-      'EM_PX': 'PX_EM',
-      'PX_PCT': 'PCT_PX',
-      'PCT_PX': 'PX_PCT',
-      'BASE_PX': 'PX_BASE',
-      'PX_BASE': 'BASE_PX'
-    };
-
     const newConversion = invertedMap[selectedConversion] || selectedConversion;
     setSelectedConversion(newConversion);
 
@@ -244,28 +225,28 @@ export default function App() {
           id='baseRem'
           label={'1rem in px'}
           value={baseRem}
-          onChange={(e) => setBaseRem(parseFloat(e.target.value) || 0)}
+          onChange={(event) => setBaseRem(parseFloat(event.target.value) || 0)}
           placeholder={'16'}
         />
         <Input
           id='baseRem'
           label={'1em in px'}
           value={baseEm}
-          onChange={(e) => setBaseEm(parseFloat(e.target.value) || 0)}
+          onChange={(event) => setBaseEm(parseFloat(event.target.value) || 0)}
           placeholder={'16'}
         />
         <Input
           id='baseRem'
           label={'Container width in px'}
           value={containerWidth}
-          onChange={(e) => setContainerWidth(parseFloat(e.target.value) || 0)}
+          onChange={(event) => setContainerWidth(parseFloat(event.target.value) || 0)}
           placeholder={'16'}
         />
         <Input
           id='baseRem'
           label={'Base unit'}
           value={baseUnit}
-          onChange={(e) => setBaseUnit(parseFloat(e.target.value) || 0)}
+          onChange={(event) => setBaseUnit(parseFloat(event.target.value) || 0)}
           placeholder={'16'}
         />
       </Accordion>
